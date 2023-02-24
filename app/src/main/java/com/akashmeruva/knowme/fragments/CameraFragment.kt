@@ -1,26 +1,22 @@
 package com.akashmeruva.knowme.fragments
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.*
-import android.widget.AdapterView
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
-import androidx.camera.core.AspectRatio
-import androidx.camera.core.ImageProxy
-import androidx.camera.core.Camera
-import androidx.camera.core.CameraSelector
-import androidx.camera.core.ImageAnalysis
-import androidx.camera.core.Preview
+import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.akashmeruva.knowme.ImageClassifierHelper
 import com.akashmeruva.knowme.R
 import com.akashmeruva.knowme.databinding.FragmentCameraBinding
@@ -29,12 +25,17 @@ import org.tensorflow.lite.task.vision.classifier.Classifications
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
+
 class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
 
     companion object {
         private const val TAG = "Image Classifier"
     }
     val db = FirebaseDatabase.getInstance()
+    var model_name = " "
+    lateinit var name_project : TextView
+    lateinit var descreption : TextView
+
     val refrence = db.reference.child("Models")
     private var _fragmentCameraBinding: FragmentCameraBinding? = null
     private val fragmentCameraBinding
@@ -98,12 +99,17 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
 
         google_btn.setOnClickListener {
 
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=$model_name"))
+            startActivity(browserIntent)
         }
 
         github_btn.setOnClickListener {
-
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/search?q=$model_name"))
+            startActivity(browserIntent)
         }
 
+         name_project = requireActivity().findViewById<TextView>(R.id.name_tv1)
+         descreption = requireActivity().findViewById<TextView>(R.id.descreption_tv2)
 
     }
 
@@ -237,8 +243,16 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
                  val str = results?.get(0)!!.categories.toString().substringAfter("index").subSequence(1, 2).toString()
                  val str1 = results?.get(0)!!.categories.toString().substringAfter("0.").subSequence(0 , 2)
             if(str != "]") {
-                refrence.child(str).get().addOnSuccessListener {
+                refrence.child(str).child("name").get().addOnSuccessListener {
                     _fragmentCameraBinding!!.NameObject.text = it.value.toString()
+                    model_name = it.value.toString()
+
+                    name_project.text = it.value.toString()
+
+                    refrence.child(str).child("descreption").get().addOnSuccessListener {
+
+                        descreption.text = it.value.toString()
+                    }
                 }
                 _fragmentCameraBinding?.Accuracy?.text  = "$str1%"
             }
