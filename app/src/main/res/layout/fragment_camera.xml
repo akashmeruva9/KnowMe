@@ -42,8 +42,22 @@
             android:id="@+id/Name_Object"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="70dp"
+            android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
+            />
+        <TextView
+            android:id="@+id/Accuracy"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

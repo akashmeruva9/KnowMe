@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "329452618940",
+    "project_id": "know-mw",
+    "storage_bucket": "know-mw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329452618940:android:5927d8b4e08fc9f2427cb9",
+        "android_client_info": {
+          "package_name": "com.akashmeruva.knowme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329452618940-o7ldmjahdl2uqgss95m3helharhego6j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.akashmeruva.knowme",
+            "certificate_hash": "9381a6b61871c0df4c6afa2e71c04d3861b3a63e"
+          }
+        },
+        {
+          "client_id": "329452618940-q7shs1gu9lpukkmrg65jbvnl0126uf84.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDzqmE5ujtMPnk69umn5PLyhEjF1LbdTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329452618940-q7shs1gu9lpukkmrg65jbvnl0126uf84.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

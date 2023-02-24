@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
     id 'de.undercouch.download'
@@ -8,6 +9,18 @@ plugins {
 
 android {
     compileSdk 33
+
+    buildscript {
+        repositories {
+            google()
+            mavenCentral()
+        }
+        dependencies {
+
+            classpath 'com.google.gms:google-services:4.3.15'
+            classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.3")
+        }
+    }
 
     defaultConfig {
         applicationId "com.akashmeruva.knowme"
@@ -83,4 +96,10 @@ dependencies {
     // Import the GPU delegate plugin Library for GPU inference
     implementation 'org.tensorflow:tensorflow-lite-gpu-delegate-plugin:0.4.0'
     implementation 'org.tensorflow:tensorflow-lite-gpu:2.9.0'
+
+    implementation platform('com.google.firebase:firebase-bom:31.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    //progressbar
 }

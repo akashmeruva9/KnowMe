@@ -5,12 +5,9 @@
     package="com.akashmeruva.knowme">
     <!-- Enable instant app support -->
     <dist:module dist:instant="true" />
-
-    <!-- Declare features -->
     <uses-feature android:name="android.hardware.camera" />
-
-    <!-- Declare permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
