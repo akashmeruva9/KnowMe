@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.akashmeruva.knowme.ImageClassifierHelper
+import com.akashmeruva.knowme.ImageClassifierHelper2
 import com.akashmeruva.knowme.R
 import com.akashmeruva.knowme.databinding.FragmentCameraBinding
 import com.google.firebase.database.FirebaseDatabase
@@ -26,10 +27,10 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 
-class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
+class CameraFragment : Fragment(), ImageClassifierHelper2.ClassifierListener {
 
     companion object {
-        private const val TAG = "Image Classifier"
+        const val TAG = "Image Classifier"
     }
     val db = FirebaseDatabase.getInstance()
     var model_name = " "
@@ -41,7 +42,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
     private val fragmentCameraBinding
         get() = _fragmentCameraBinding!!
 
-    private lateinit var imageClassifierHelper: ImageClassifierHelper
+    private lateinit var imageClassifierHelper: ImageClassifierHelper2
     private lateinit var bitmapBuffer: Bitmap
 
     private var preview: Preview? = null
@@ -83,7 +84,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        imageClassifierHelper = ImageClassifierHelper(context = requireContext(), imageClassifierListener = this)
+       // imageClassifierHelper = ImageClassifierHelper(context = requireContext(), imageClassifierListener = this)
 
 
 
