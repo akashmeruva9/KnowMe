@@ -64,8 +64,7 @@ class ImageClassifierHelper(
             }
 
         try {
-            imageClassifier =
-                ImageClassifier.createFromFileAndOptions(context, modelName, optionsBuilder.build())
+            imageClassifier = ImageClassifier.createFromFileAndOptions(context, modelName, optionsBuilder.build())
         } catch (e: IllegalStateException) {
             imageClassifierListener?.onError(
                 "Image classifier failed to initialize. See error logs for details"
@@ -79,18 +78,10 @@ class ImageClassifierHelper(
             setupImageClassifier()
         }
 
-        // Inference time is the difference between the system time at the start and finish of the
-        // process
         var inferenceTime = SystemClock.uptimeMillis()
 
-        // Create preprocessor for the image.
-        // See https://www.tensorflow.org/lite/inference_with_metadata/
-        //            lite_support#imageprocessor_architecture
-        val imageProcessor =
-            ImageProcessor.Builder()
-                .build()
+        val imageProcessor = ImageProcessor.Builder().build()
 
-        // Preprocess the image and convert it into a TensorImage for classification.
         val tensorImage = imageProcessor.process(TensorImage.fromBitmap(image))
 
         val imageProcessingOptions = ImageProcessingOptions.builder()
@@ -99,14 +90,9 @@ class ImageClassifierHelper(
 
         val results = imageClassifier?.classify(tensorImage, imageProcessingOptions)
         inferenceTime = SystemClock.uptimeMillis() - inferenceTime
-        imageClassifierListener?.onResults(
-            results,
-            inferenceTime
-        )
+        imageClassifierListener?.onResults(results, inferenceTime)
     }
 
-    // Receive the device rotation (Surface.x values range from 0->3) and return EXIF orientation
-    // http://jpegclub.org/exif_orientation.html
     private fun getOrientationFromRotation(rotation: Int) : ImageProcessingOptions.Orientation {
         when (rotation) {
             Surface.ROTATION_270 ->

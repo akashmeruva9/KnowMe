@@ -39,11 +39,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
 
     private lateinit var imageClassifierHelper: ImageClassifierHelper
     private lateinit var bitmapBuffer: Bitmap
-    private val classificationResultsAdapter by lazy {
-        ClassificationResultsAdapter().apply {
-            updateAdapterSize(imageClassifierHelper.maxResults)
-        }
-    }
+
     private var preview: Preview? = null
     private var imageAnalyzer: ImageAnalysis? = null
     private var camera: Camera? = null
@@ -57,7 +53,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
 
         if (!PermissionsFragment.hasPermissions(requireContext())) {
             Navigation.findNavController(requireActivity(), R.id.fragment_container)
-                .navigate( CameraFragmentDirections.actionCameraToPermissions())
+                .navigate(CameraFragmentDirections.actionCameraToPermissions())
         }
     }
 
@@ -86,10 +82,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
         imageClassifierHelper =
             ImageClassifierHelper(context = requireContext(), imageClassifierListener = this)
 
-        with(fragmentCameraBinding.recyclerviewResults) {
-            layoutManager = LinearLayoutManager(requireContext())
-            adapter = classificationResultsAdapter
-        }
+
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
@@ -139,7 +132,6 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
             if (imageClassifierHelper.maxResults > 1) {
                 imageClassifierHelper.maxResults--
                 updateControlsUi()
-                classificationResultsAdapter.updateAdapterSize(size = imageClassifierHelper.maxResults)
             }
         }
 
@@ -148,7 +140,6 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
             if (imageClassifierHelper.maxResults < 3) {
                 imageClassifierHelper.maxResults++
                 updateControlsUi()
-                classificationResultsAdapter.updateAdapterSize(size = imageClassifierHelper.maxResults)
             }
         }
 
@@ -315,20 +306,15 @@ class CameraFragment : Fragment(), ImageClassifierHelper.ClassifierListener {
     override fun onError(error: String) {
         activity?.runOnUiThread {
             Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
-            classificationResultsAdapter.updateResults(null)
-            classificationResultsAdapter.notifyDataSetChanged()
         }
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onResults(
-        results: List<Classifications>?,
-        inferenceTime: Long
-    ) {
+    override fun onResults(results: List<Classifications>?, inferenceTime: Long) {
         activity?.runOnUiThread {
-            // Show result on bottom sheet
-            classificationResultsAdapter.updateResults(results)
-            classificationResultsAdapter.notifyDataSetChanged()
+
+            val str = results?.get(0)!!.categories.toString().substringAfter("index")
+            _fragmentCameraBinding!!.NameObject.text = str.subSequence(1 ,2)
             fragmentCameraBinding.bottomSheetLayout.inferenceTimeVal.text =
                 String.format("%d ms", inferenceTime)
         }
