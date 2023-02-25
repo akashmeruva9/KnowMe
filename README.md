@@ -2,6 +2,11 @@
 
 ![KnowMe](https://user-images.githubusercontent.com/107416261/221327599-911f17b1-272a-4cf2-afe5-116dab1ec68f.png)
 
+
+https://www.figma.com/file/tR8ln9D1NtiPSvBLGKMhXu/KnowMe?node-id=21%3A739&t=OX3wCakOK5ebZ5WV-1
+
+https://www.canva.com/design/DAFbgi9PfdQ/u-Ft8iOfjrn4LIRBWs1bEw/edit?utm_content=DAFbgi9PfdQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 Overview:
 
 This project is to create a mobile app for the Next-Tech Lab, a student-run organisation dedicated to learning and building. The app will enable users to easily identify and learn about the objects and devices in the lab. The app has been designed to be intuitive and user-friendly, and it will be available to all students and members at the Lab. 
