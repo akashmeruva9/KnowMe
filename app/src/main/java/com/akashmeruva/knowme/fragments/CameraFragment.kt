@@ -36,6 +36,8 @@ class CameraFragment : Fragment(), ImageClassifierHelper2.ClassifierListener {
     var model_name = " "
     lateinit var name_project : TextView
     lateinit var descreption : TextView
+    lateinit var Uses : TextView
+    lateinit var tv3 : TextView
 
     val refrence = db.reference.child("Models")
     private var _fragmentCameraBinding: FragmentCameraBinding? = null
@@ -111,6 +113,9 @@ class CameraFragment : Fragment(), ImageClassifierHelper2.ClassifierListener {
 
          name_project = requireActivity().findViewById<TextView>(R.id.name_tv1)
          descreption = requireActivity().findViewById<TextView>(R.id.descreption_tv2)
+        Uses = requireActivity().findViewById<TextView>(R.id.Uses_tv3)
+        tv3 = requireActivity().findViewById<TextView>(R.id.tv3)
+
 
     }
 
@@ -249,10 +254,15 @@ class CameraFragment : Fragment(), ImageClassifierHelper2.ClassifierListener {
                     model_name = it.value.toString()
 
                     name_project.text = it.value.toString()
-
+                    if(it.value.toString().contains("Trophy") || it.value.toString().contains("Hackathon") )
+                        tv3.text = "Information :"
                     refrence.child(str).child("descreption").get().addOnSuccessListener {
 
                         descreption.text = it.value.toString()
+                    }
+
+                    refrence.child(str).child("uses").get().addOnSuccessListener {
+                        Uses.text = it.value.toString()
                     }
                 }
                 _fragmentCameraBinding?.Accuracy?.text  = "$str1%"

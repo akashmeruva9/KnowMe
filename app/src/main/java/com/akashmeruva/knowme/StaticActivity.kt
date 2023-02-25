@@ -28,6 +28,8 @@ class StaticActivity : AppCompatActivity()  , ImageClassifierHelper.ClassifierLi
     lateinit var name_project : TextView
     lateinit var Name_Object : TextView
     lateinit var Accuracy : TextView
+    lateinit var Uses : TextView
+    lateinit var tv3 : TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,9 @@ class StaticActivity : AppCompatActivity()  , ImageClassifierHelper.ClassifierLi
         descreption = findViewById<TextView>(R.id.descreption_tv2)
         Name_Object = findViewById<TextView>(R.id.Name_Object)
         Accuracy = findViewById<TextView>(R.id.Accuracy)
+        Uses = findViewById<TextView>(R.id.Uses_tv3)
+        tv3 = findViewById<TextView>(R.id.tv3)
+
 
         ImagePicker.with(this)
             .crop()
@@ -97,8 +102,13 @@ class StaticActivity : AppCompatActivity()  , ImageClassifierHelper.ClassifierLi
                         model_name = it.value.toString()
                         name_project.text = it.value.toString()
                         Name_Object.text = it.value.toString()
+                        if(it.value.toString().contains("Trophy") || it.value.toString().contains("Hackathon") )
+                            tv3.text = "Information :"
                         refrence.child(str).child("descreption").get().addOnSuccessListener {
                             descreption.text = it.value.toString()
+                        }
+                        refrence.child(str).child("uses").get().addOnSuccessListener {
+                            Uses.text = it.value.toString()
                         }
                     }
                     Accuracy.text  = "$str1%"
