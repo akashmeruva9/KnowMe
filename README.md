@@ -13,6 +13,15 @@ Goal and Objective:
 
 This project is aimed at creating a mobile app that will enable the Next-Tech Lab community to easily identify and learn about the objects and devices in the lab and how to use them to build projects and products. The goal of the app is to enable users to become more knowledgeable about technology and engineering and to empower them to create innovative projects and products.
 
+Solution:
+
+The app will allow users to scan objects and devices that they are unfamiliar with and receive information on what device it is, what it is used for, and how it can be used to build projects and products. So, first we have trained the different equipments in the lab using teachable machine and then we have integrated this with an android app using Tensorflow Lite.
+
+Tools and Technologies:
+
+Teachable Machine, Tensorflow, Figma, Canva, Android Studio, Firebase, Kotlin
+
+
 
 <table style="border: 1px solid black;">
             <tr>
