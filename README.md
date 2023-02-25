@@ -17,19 +17,19 @@ This project is aimed at creating a mobile app that will enable the Next-Tech La
 <table style="border: 1px solid black;">
             <tr>
                 <td  style="border: 1px solid black ;">
-                    News
+                    Front
                 </td>
                 <td  style="border: 1px solid black ;">
                     <img src="https://user-images.githubusercontent.com/106223361/221327185-ecc9b557-5c78-402a-8dd3-f3d98eb4cfd9.jpg"   width="200">
                 </td>
                 <td  style="border: 1px solid black ;">
-                    Memes
+                    Scanner
                 </td>
                 <td  style="border: 1px solid black ;">
                     <img src="https://user-images.githubusercontent.com/106223361/221327198-495a41a2-33f3-4c1f-b953-b9b39fdd852a.jpg"   width="200">
                 </td>
                  <td  style="border: 1px solid black ;">
-                    Reels
+                    Details
                 </td>
                 <td  style="border: 1px solid black ;">
                     <img src="https://user-images.githubusercontent.com/106223361/221327218-9137dc62-591c-4aea-a99b-6019638bbcb0.jpg"   width="200">
