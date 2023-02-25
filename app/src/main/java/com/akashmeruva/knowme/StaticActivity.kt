@@ -3,6 +3,7 @@ package com.akashmeruva.knowme
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -42,12 +43,24 @@ class StaticActivity : AppCompatActivity()  , ImageClassifierHelper.ClassifierLi
         ImagePicker.with(this)
             .crop()
             .cameraOnly()
-            .crop(1080F, 2220F)
+            .crop(1080F, 2120F)
             .compress(1024)			//Final image size will be less than 1 MB(Optional)
             .maxResultSize(1080, 1920)	//Final image resolution will be less than 1080 x 1080(Optional)
             .start()
 
+        val google_btn = findViewById<ImageView>(R.id.google_img)
+        val github_btn = findViewById<ImageView>(R.id.github_img)
 
+        google_btn.setOnClickListener {
+
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q=$model_name"))
+            startActivity(browserIntent)
+        }
+
+        github_btn.setOnClickListener {
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/search?q=$model_name"))
+            startActivity(browserIntent)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -80,7 +93,7 @@ class StaticActivity : AppCompatActivity()  , ImageClassifierHelper.ClassifierLi
                 val str = results?.get(0)!!.categories.toString().substringAfter("index").subSequence(1, 2).toString()
                 val str1 = results?.get(0)!!.categories.toString().substringAfter("0.").subSequence(0 , 2)
                 if(str != "]") {
-                    refrence.child(str).get().addOnSuccessListener {
+                    refrence.child(str).child("name").get().addOnSuccessListener {
                         model_name = it.value.toString()
                         name_project.text = it.value.toString()
                         Name_Object.text = it.value.toString()

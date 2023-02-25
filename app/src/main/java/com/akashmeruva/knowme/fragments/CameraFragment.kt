@@ -84,7 +84,7 @@ class CameraFragment : Fragment(), ImageClassifierHelper2.ClassifierListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       // imageClassifierHelper = ImageClassifierHelper(context = requireContext(), imageClassifierListener = this)
+        imageClassifierHelper = ImageClassifierHelper2(context = requireContext(), imageClassifierListener = this)
 
 
 

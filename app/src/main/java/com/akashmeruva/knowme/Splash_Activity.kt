@@ -13,6 +13,7 @@ class Splash_Activity : AppCompatActivity() {
             {
                val intent = Intent(applicationContext , SelectScreen::class.java)
                 startActivity(intent)
+                this.finish()
             }, 1500)
 
 

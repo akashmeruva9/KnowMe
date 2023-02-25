@@ -16,11 +16,13 @@ class SelectScreen : AppCompatActivity() {
         realtime_btn.setOnClickListener {
             val intent = Intent(applicationContext , MainActivity::class.java)
             startActivity(intent)
+            this.finish()
         }
 
         static_btn.setOnClickListener {
             val intent = Intent(applicationContext , StaticActivity::class.java)
             startActivity(intent)
+            this.finish()
         }
 
     }

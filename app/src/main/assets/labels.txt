@@ -1,0 +1,10 @@
+0 ar1
+1 arudino
+2 cheque
+3 lcd_display
+4 leap
+5 robofest_2018
+6 techfest_2019
+7 tech_fest
+8 ultra_sonic
+9 blank
