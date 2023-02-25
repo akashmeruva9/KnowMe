@@ -2,10 +2,11 @@
 
 ![KnowMe](https://user-images.githubusercontent.com/107416261/221327599-911f17b1-272a-4cf2-afe5-116dab1ec68f.png)
 
-
+Figma:
 https://www.figma.com/file/tR8ln9D1NtiPSvBLGKMhXu/KnowMe?node-id=21%3A739&t=OX3wCakOK5ebZ5WV-1
 
-https://www.canva.com/design/DAFbgi9PfdQ/u-Ft8iOfjrn4LIRBWs1bEw/edit?utm_content=DAFbgi9PfdQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+Canva:
+https://www.canva.com/design/DAFbgi9PfdQ/u-Ft8iOfjrn4LIRBWs1bEw/view?utm_content=DAFbgi9PfdQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 Overview:
 
