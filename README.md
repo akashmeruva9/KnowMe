@@ -1,5 +1,7 @@
 # KnowMe
 
+![KnowMe](https://user-images.githubusercontent.com/107416261/221327599-911f17b1-272a-4cf2-afe5-116dab1ec68f.png)
+
 Overview:
 
 This project is to create a mobile app for the Next-Tech Lab, a student-run organisation dedicated to learning and building. The app will enable users to easily identify and learn about the objects and devices in the lab. The app has been designed to be intuitive and user-friendly, and it will be available to all students and members at the Lab. 
