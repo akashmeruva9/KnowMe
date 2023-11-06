@@ -23,7 +23,7 @@ This project is aimed at creating a mobile app that will enable the Next-Tech La
 
 Solution:
 
-The app will allow users to scan objects and devices that they are unfamiliar with and receive information on what device it is, what it is used for, and how it can be used to build projects and products. So, first we have trained the different equipments in the lab using teachable machine and then we have integrated this with an android app using Tensorflow Lite.
+This app helps students in labs understand devices better by scanning objects. Users can learn the devices' purpose and their potential applications for projects. We accomplished this by training lab equipment through Teachable Machine, capturing various angles to enhance accuracy. The result is a streamlined mobile app powered by TensorFlow Lite, offering a user-friendly experience.
 
 Tools and Technologies:
 
